@@ -38,7 +38,7 @@ describe 'filefilter_test::default' do
   end
 
   it 'filter file' do
-    expect(chef_run).to filter_filefilter('tmp/testfile.txt').with(
+    expect(chef_run).to run_filefilter('tmp/testfile.txt').with(
       owner: 'root',
       group: 'root',
       begintoken: '@',
@@ -56,7 +56,7 @@ describe 'filefilter_test::default' do
   end
 
   it 'filters *.tst files' do
-    expect(chef_run).to filter_filefilter('tmp/testdir').with(
+    expect(chef_run).to run_filefilter('tmp/testdir').with(
       owner: 'root',
       group: 'root',
       begintoken: '\${',

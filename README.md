@@ -128,7 +128,7 @@ This resource has the following attributes:
     <th>Description</th>
   </tr>
   <tr>
-    <td><tt>:file</tt></td>
+    <td><tt>:run</tt></td>
     <td>Filter file or files in directory in place or to the destination directory.</td>
   </tr>
 </table>

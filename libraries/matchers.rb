@@ -1,7 +1,7 @@
 if defined?(ChefSpec)
   ChefSpec::Runner.define_runner_method :filefilter
 
-  def filter_filefilter(name)
-    ChefSpec::Matchers::ResourceMatcher.new(:filefilter, :filter, name)
+  def run_filefilter(name)
+    ChefSpec::Matchers::ResourceMatcher.new(:filefilter, :run, name)
   end
 end

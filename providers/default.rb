@@ -83,7 +83,7 @@ def process_dir(dir)
   end
 end
 
-action :filter do
+action :run do
   src = new_resource.source
   if ::File.directory?(src)
     process_dir(src)

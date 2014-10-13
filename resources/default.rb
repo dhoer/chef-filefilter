@@ -1,5 +1,5 @@
-actions :filter
-default_action :filter
+actions :run
+default_action :run
 
 attribute :source, kind_of: String
 attribute :destination,   kind_of: String, default: nil
@@ -17,5 +17,5 @@ def initialize(*args)
   super
   @source ||= @name
   @destination ||= @source
-  @action = :filter
+  @action = :run
 end
