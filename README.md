@@ -1,5 +1,7 @@
 # FileFilter Cookbook
 
+[![Build Status](https://travis-ci.org/dhoer/chef-filefilter.svg)](https://travis-ci.org/dhoer/chef-filefilter)
+
 A Chef LWRP that searches and replaces tokens in a single file or designated files in a directory.
 It is modeled after [Ant's FilterSet](http://ant.apache.org/manual/Types/filterset.html), so it can filter 
 with [Maven delimiters](http://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) as well.
@@ -91,7 +93,7 @@ This resource has the following attributes:
   <tr>
     <td><tt>pattern</tt></td>
     <td>The file name pattern to match inside a directory.  Default value: <tt>**</tt>, see 
-        [::File.fnmatch()](http://www.ruby-doc.org/core-2.1.3/File.html#method-c-fnmatch) for more info.</td>
+        http://www.ruby-doc.org/core-2.1.3/File.html#method-c-fnmatch for more info.</td>
   </tr>
   <tr>
     <td><tt>recurse</tt></td>
@@ -134,14 +136,17 @@ This resource has the following attributes:
 
 ## ChefSpec Matchers
 
-The Selenium cookbook includes custom [ChefSpec](https://github.com/sethvargo/chefspec) matchers you can use to test 
-your own cookbooks that use FileFilter cookbook LWRPs.
+The FileFilter cookbook includes custom [ChefSpec](https://github.com/sethvargo/chefspec) matchers you can use to test 
+your own cookbooks.
 
 Example Matcher Usage
 
 ```ruby
 expect(chef_run).to run_filefilter('name').with(
-  node: 'hub'
+  tokens: {
+    hostname: '10.25.0.5',
+    port: 80
+  }
 )
 ```
       
