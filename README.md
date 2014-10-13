@@ -2,7 +2,7 @@
 
 A Chef LWRP that searches and replaces tokens in a single file or designated files in a directory.
 It is modeled after [Ant's FilterSet](http://ant.apache.org/manual/Types/filterset.html), so it can filter 
-[Maven delimiters](http://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) as well.
+with [Maven delimiters](http://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) as well.
 
 ## Requirements
 
@@ -14,8 +14,6 @@ Chef 11.14.2 and Ruby 1.9.3 or higher.
 - centos
 
 ## Usage
-
-### Examples
 
 Replace all occurrences of tokens `@host@` with `http://example.com` and `@port@` with `80` in file:
 
@@ -68,54 +66,55 @@ This resource has the following attributes:
   </tr>
   <tr>
     <td><tt>source</tt></td>
-    <td>The source file or directory to be filtered. Defaults to `name` if attribute omitted.</td>
+    <td>The source file or directory to be filtered. Defaults to <tt>name</tt> if attribute omitted.</td>
   </tr>
   <tr>
     <td><tt>destination</tt></td>
-    <td>The destination file or directory.  Defaults to `source` if attribute omitted.</td>
+    <td>The destination file or directory.  Defaults to <tt>source</tt> if attribute omitted.</td>
   </tr>
   <tr>
     <td><tt>tokens</tt></td>
-    <td>One or more token strings without begintoken/endtoken separator chars (e.g., `@`) and the value string
+    <td>One or more token strings without begintoken/endtoken separator chars (e.g., <tt>@</tt>) and the value string
         that should be put to replace the token when the file is copied.</td>
   </tr>
   <tr>
     <td><tt>begintoken</tt></td>
-    <td>The string marking the beginning of a token (e.g., `@DATE@`, `${DATE}`). Escape the token value of $ with two back 
-        slashes if in double quotes or a single back slash in single quotes to prevent it from trying to interpret as a 
-        regular expression (e.g., `"\\${"` or `'\${'`).  Default value: `@`</td>
+    <td>The string marking the beginning of a token (e.g., <tt>@DATE@</tt>, <tt>${DATE}</tt>). Escape the token value of 
+        <tt>$</tt> with two back slashes if in double quotes or a single back slash in single quotes to prevent it from 
+        trying to interpret as a regular expression (e.g., <tt>"\\${"</tt> or <tt>'\${'</tt>).  Default value: 
+        <tt>@</tt></td>
   </tr>
   <tr>
     <td><tt>endtoken</tt></td>
-    <td>The string marking the end of a token (eg., `@DATE@`).  Default value: <tt>@</tt></td>
+    <td>The string marking the end of a token (eg., <tt>@DATE@</tt>).  Default value: <tt>@</tt></td>
   </tr>
   <tr>
     <td><tt>pattern</tt></td>
-    <td>The file name pattern to match inside a directory.  Default value: `**`, see 
+    <td>The file name pattern to match inside a directory.  Default value: <tt>**</tt>, see 
         [::File.fnmatch()](http://www.ruby-doc.org/core-2.1.3/File.html#method-c-fnmatch) for more info.</td>
   </tr>
   <tr>
     <td><tt>recurse</tt></td>
     <td>When processing a directory, controls whether or not subdirectories are checked and processed.  Default value: 
-        `true`</td>
+        <tt>true</tt></td>
   </tr>
   <tr>
     <td><tt>backup</tt></td>
     <td>Backup source file, if source and destination are the same. The backup file will be in the same directory and
         have ".#{node['filefilter']['strftime']#{node['filefilter']['file_extension']}" appended to the original
-        filename. Default value: `false`</td>
+        filename. Default value: <tt>false</tt></td>
   </tr>
   <tr>
     <td><tt>owner</tt></td>
-    <td>The owner of the file. Default value: `root`</td>
+    <td>The owner of the file. Default value: <tt>root</tt></td>
   </tr>
   <tr>
     <td><tt>group</tt></td>
-    <td>The group owner of the file. Default value: `root`</td>
+    <td>The group owner of the file. Default value: <tt>root</tt></td>
   </tr>
   <tr>
     <td><tt>mode</tt></td>
-    <td>File permissions. Default value: `0644`</td>
+    <td>File permissions. Default value: <tt>0644</tt></td>
   </tr>
 </table>
 
