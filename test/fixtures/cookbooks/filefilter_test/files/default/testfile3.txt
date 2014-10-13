@@ -1,0 +1,1 @@
+These are tokens are mixed: @TOK1@, @TOK1@, @TOK2@, ${TOK2}, @TOK3@ and ::TOKC::.

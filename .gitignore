@@ -1,0 +1,8 @@
+.idea
+.DS_Store
+
+Gemfile.lock
+Berksfile.lock
+
+.kitchen/
+.kitchen.local.yml

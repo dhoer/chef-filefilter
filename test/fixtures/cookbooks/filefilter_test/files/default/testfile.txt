@@ -1,0 +1,3 @@
+These are tokens that should be replaced: @TOK1@, @TOK2@, and @TOK3@.
+
+These are tokens that shouldn't be replaced: @TOKA@, @TOKB@, and @TOKC@.
