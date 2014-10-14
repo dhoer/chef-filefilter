@@ -20,7 +20,8 @@ end
 def create_destination(destination, owner, group, mode)
   dirname = ::File.dirname(destination)
   create_directory(dirname)
-  file destination do
+  file "filefilter create destination file #{destination}" do
+    path destination
     owner owner
     group group
     mode mode
@@ -28,7 +29,8 @@ def create_destination(destination, owner, group, mode)
 end
 
 def create_directory(dirname)
-  directory dirname do
+  directory "filefilter create directory #{dirname}" do
+    path dirname
     recursive true
     mode 00755
     not_if { ::Dir.exist?(dirname) }

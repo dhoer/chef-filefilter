@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe 'filefilter_test::default' do
-  let(:chef_run) { ChefSpec::Runner.new(step_into: ['filefilter']).converge(described_recipe) }
+
+  let(:chef_run) { ChefSpec::SoloRunner.new(step_into: ['filefilter']).converge(described_recipe) }
 
   before do
     allow(::File).to receive(:file?) { true }

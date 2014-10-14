@@ -17,7 +17,7 @@ Chef 11.14.2 and Ruby 1.9.3 or higher.
 
 ## Usage
 
-Replace all occurrences of tokens `@host@` with `http://example.com` and `@port@` with `80` in file:
+Replaces all occurrences of tokens `@host@` with `http://example.com` and `@port@` with `80` in file:
 
 ```ruby
 filefilter 'src/myfile.txt' do
@@ -130,7 +130,7 @@ This resource has the following attributes:
   </tr>
   <tr>
     <td><tt>:run</tt></td>
-    <td>Filter file or files in directory in place or to the destination directory.</td>
+    <td>Filter tokens in a single file or designated files in a directory.</td>
   </tr>
 </table>
 
