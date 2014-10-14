@@ -12,5 +12,8 @@ platforms:
 suites:
   - name: filefilter
     run_list:
-      - recipe[filefilter_test::default]
+      - recipe[filefilter_test::filter_file_inplace]
+      - recipe[filefilter_test::filter_file_dest]
+      - recipe[filefilter_test::filter_dir_inplace]
+      - recipe[filefilter_test::filter_dir_dest]
     attributes:

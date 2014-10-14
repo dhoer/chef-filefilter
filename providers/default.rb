@@ -19,8 +19,8 @@ end
 
 def create_destination(destination, owner, group, mode)
   dirname = ::File.dirname(destination)
-  create_directory(dirname)
-  file "filefilter create destination file #{destination}" do
+  create_directory(dirname) unless ::Dir.exist?(dirname)
+  file "filefilter create file #{destination}" do
     path destination
     owner owner
     group group

@@ -10,19 +10,20 @@ describe 'filefilter_test::filter_file_dest' do
     allow(::File).to receive(:open)
   end
 
-  it 'sets up test directory' do
+  it 'sets up test' do
     expect(chef_run).to create_directory('/tmp/filefilter/filter_file')
-  end
-
-  it 'sets up test file' do
     expect(chef_run).to create_cookbook_file('files/testfile.txt').with(
       path: '/tmp/filefilter/filter_file/testfile.txt'
     )
+    expect(chef_run).to create_cookbook_file('files/testfile1.txt').with(
+      path: '/tmp/filefilter/filter_file/testfile1.txt'
+    )
   end
 
-  it 'copies and filter file to new destination' do
-    expect(chef_run).to run_filefilter('filter_to_new_dest').with(
-      source: '/tmp/filefilter/filter_file_inplace/testfile.txt',
+  it 'copies and filter file to new absolute destination' do
+    expect(chef_run).to run_filefilter('filter_to_new_dest_absolute_path').with(
+      source: '/tmp/filefilter/filter_file/testfile.txt',
+      destination: '/tmp/filefilter/filter_file_dest/testfile.txt',
       owner: 'root',
       group: 'root',
       begintoken: '@',
@@ -36,7 +37,27 @@ describe 'filefilter_test::filter_file_dest' do
   end
 
   it 'creates a destination file' do
-    expect(chef_run).to create_file('filefilter create destination file /tmp/filefilter/filter_file_dest/testfile.txt')
+    expect(chef_run).to create_file('filefilter create file /tmp/filefilter/filter_file_dest/testfile.txt')
+  end
+
+  it 'copies and filter file to new relative destination' do
+    expect(chef_run).to run_filefilter('filter_to_new_dest_relative_path').with(
+      source: 'tmp/filefilter/filter_file/testfile1.txt',
+      destination: 'tmp/filefilter/filter_file_dest/testfile1.txt',
+      owner: 'root',
+      group: 'root',
+      begintoken: '@',
+      endtoken: '@',
+      tokens: { TOK1: '1', TOK2: '2', TOK3: '3       ' }
+    )
+  end
+
+  it 'does not create a destination directory' do
+    expect(chef_run).to create_directory('filefilter create directory tmp/filefilter/filter_file_dest')
+  end
+
+  it 'creates a destination file' do
+    expect(chef_run).to create_file('filefilter create file tmp/filefilter/filter_file_dest/testfile1.txt')
   end
 
 end
