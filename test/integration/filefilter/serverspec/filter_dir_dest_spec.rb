@@ -39,4 +39,21 @@ describe 'filefilter::filter_dir_dest' do
     end
   end
 
+  describe file('/tmp/filefilter/filter_dir_dest_txt_no_recurse/testfile.txt') do
+    it { should be_file }
+
+    its(:content) { should match(/These are tokens that should be replaced: a, b, and c       ./) }
+    its(:content) { should match(/These are tokens that shouldn't be replaced: @TOKA@, @TOKB@, and @TOKC@./) }
+  end
+
+  describe file('/tmp/filefilter/filter_dir_dest_txt_no_recurse/testfile1.txt') do
+    it { should be_file }
+
+    its(:content) { should match(/These are tokens that should be replaced: a, b, and c       ./) }
+    its(:content) { should match(/These are tokens that shouldn't be replaced: @TOKA@, @TOKB@, and @TOKC@./) }
+  end
+
+  describe file('/tmp/filefilter/filter_dir_dest_txt_no_recurse/subdir') do
+    it { should_not be_directory }
+  end
 end

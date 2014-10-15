@@ -29,7 +29,7 @@ cookbook_file 'files/testfile3.txt' do
 end
 
 filefilter 'filter_text_files_recurse_absolute_path' do
-  source '/tmp/filefilter/filter_dir_inplace/'
+  source '/tmp/filefilter/filter_dir_inplace'
   pattern '*.txt'
   tokens(
     TOK1: 'a',
@@ -40,7 +40,7 @@ filefilter 'filter_text_files_recurse_absolute_path' do
 end
 
 filefilter 'filter_text_files_recurse_relative_path' do
-  source 'tmp/filefilter/filter_dir_inplace/'
+  source 'tmp/filefilter/filter_dir_inplace'
   pattern '*.tst'
   tokens(
     TOK1: '1',

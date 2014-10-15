@@ -20,16 +20,17 @@ end
 def create_destination(destination, owner, group, mode)
   dirname = ::File.dirname(destination)
   create_directory(dirname) unless ::Dir.exist?(dirname)
-  file "filefilter create file #{destination}" do
+  file "filefilter create file for #{new_resource.name}" do
     path destination
     owner owner
     group group
     mode mode
+    not_if { ::File.exist?(dirname) }
   end.run_action(:create)
 end
 
 def create_directory(dirname)
-  directory "filefilter create directory #{dirname}" do
+  directory "filefilter create directory for #{new_resource.name}" do
     path dirname
     recursive true
     mode 00755

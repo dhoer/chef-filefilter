@@ -32,11 +32,13 @@ describe 'filefilter_test::filter_file_inplace' do
   end
 
   it 'creates destination directory' do
-    expect(chef_run).to create_directory('filefilter create directory /tmp/filefilter/filter_file_inplace')
+    expect(chef_run).to create_directory(
+      'filefilter create directory for /tmp/filefilter/filter_file_inplace/testfile.txt'
+    )
   end
 
   it 'creates a destination file' do
-    expect(chef_run).to create_file('filefilter create file /tmp/filefilter/filter_file_inplace/testfile.txt')
+    expect(chef_run).to create_file('filefilter create file for /tmp/filefilter/filter_file_inplace/testfile.txt')
   end
 
   it 'filters file in-place where name is source with relative path' do
@@ -51,11 +53,13 @@ describe 'filefilter_test::filter_file_inplace' do
   end
 
   it 'creates destination directory' do
-    expect(chef_run).to create_directory('filefilter create directory tmp/filefilter/filter_file_inplace')
+    expect(chef_run).to create_directory(
+      'filefilter create directory for tmp/filefilter/filter_file_inplace/testfile1.txt'
+    )
   end
 
   it 'creates a destination file' do
-    expect(chef_run).to create_file('filefilter create file tmp/filefilter/filter_file_inplace/testfile1.txt')
+    expect(chef_run).to create_file('filefilter create file for tmp/filefilter/filter_file_inplace/testfile1.txt')
   end
 
 end

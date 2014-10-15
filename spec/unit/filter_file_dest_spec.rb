@@ -33,11 +33,11 @@ describe 'filefilter_test::filter_file_dest' do
   end
 
   it 'does not create a destination directory' do
-    expect(chef_run).to create_directory('filefilter create directory /tmp/filefilter/filter_file_dest')
+    expect(chef_run).to create_directory('filefilter create directory for filter_to_new_dest_absolute_path')
   end
 
   it 'creates a destination file' do
-    expect(chef_run).to create_file('filefilter create file /tmp/filefilter/filter_file_dest/testfile.txt')
+    expect(chef_run).to create_file('filefilter create file for filter_to_new_dest_absolute_path')
   end
 
   it 'copies and filter file to new relative destination' do
@@ -53,11 +53,11 @@ describe 'filefilter_test::filter_file_dest' do
   end
 
   it 'does not create a destination directory' do
-    expect(chef_run).to create_directory('filefilter create directory tmp/filefilter/filter_file_dest')
+    expect(chef_run).to create_directory('filefilter create directory for filter_to_new_dest_relative_path')
   end
 
   it 'creates a destination file' do
-    expect(chef_run).to create_file('filefilter create file tmp/filefilter/filter_file_dest/testfile1.txt')
+    expect(chef_run).to create_file('filefilter create file for filter_to_new_dest_relative_path')
   end
 
 end

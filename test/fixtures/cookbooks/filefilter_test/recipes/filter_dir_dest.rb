@@ -51,3 +51,16 @@ filefilter 'filter_text_files_recurse_relative_path' do
   )
   action :run
 end
+
+filefilter 'filter_text_files_no_recurse_absolute_path' do
+  source '/tmp/filefilter/filter_dir'
+  destination '/tmp/filefilter/filter_dir_dest_txt_no_recurse'
+  recurse false
+  pattern '*.txt'
+  tokens(
+    TOK1: 'a',
+    TOK2: 'b',
+    TOK3: 'c       '
+  )
+  action :run
+end
