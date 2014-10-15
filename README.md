@@ -17,6 +17,10 @@ Chef 11.14.2 and Ruby 1.9.3 or higher.
 
 ## Usage
 
+A file can be filtered in-place or to a new destination.  Directories can ONLY be filtered to a new destination.
+ 
+### Examples
+
 Replaces all occurrences of tokens `@host@` with `http://example.com` and `@port@` with `80` in file:
 
 ```ruby
@@ -55,8 +59,6 @@ filefilter 'src/dir' do
   )
 end
 ```
-
-## Resource
 
 ### Attributes
 
@@ -104,7 +106,7 @@ This resource has the following attributes:
     <td><tt>backup</tt></td>
     <td>Backup source file, if source and destination are the same. The backup file will be in the same directory and
         have ".#{node['filefilter']['strftime']#{node['filefilter']['file_extension']}" appended to the original
-        filename. Default value: <tt>false</tt></td>
+        filename. Default value: <tt>true</tt></td>
   </tr>
   <tr>
     <td><tt>owner</tt></td>
@@ -122,7 +124,7 @@ This resource has the following attributes:
 
 ### Actions
 
-This resource has the following attributes:
+This resource has the following actions:
 <table>
   <tr>
     <th>Key</th>
