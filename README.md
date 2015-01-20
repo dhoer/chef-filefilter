@@ -1,8 +1,12 @@
 # FileFilter Cookbook
 
-[![Build Status](https://travis-ci.org/dhoer/chef-filefilter.svg)](https://travis-ci.org/dhoer/chef-filefilter)
+[![Cookbook Version](http://img.shields.io/cookbook/v/filefilter.svg?style=flat-square)][cookbook]
+[![Build Status](http://img.shields.io/travis/dhoer/chef-filefilter.svg?style=flat-square)][travis]
 
-A Chef LWRP that searches and replaces tokens in a single file or designated files in a directory.
+[cookbook]: https://supermarket.chef.io/cookbooks/filefilter
+[travis]: https://travis-ci.org/dhoer/chef-filefilter
+
+Searches and replaces tokens in a single file or designated files in a directory.
 It is modeled after [Ant's FilterSet](http://ant.apache.org/manual/Types/filterset.html), so it can filter 
 with [Maven delimiters](http://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) as well.
 
