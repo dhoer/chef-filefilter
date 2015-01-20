@@ -4,7 +4,6 @@ require 'serverspec'
 set :backend, :exec
 
 describe 'filefilter::filter_dir_inplace' do
-
   describe file('/tmp/filefilter/filter_dir_inplace/testfile.txt') do
     it { should be_file }
 
@@ -46,5 +45,4 @@ describe 'filefilter::filter_dir_inplace' do
       should match(/These are tokens are mixed: 1, @1@, 2, \$\{mytoken\}, 3        and/)
     end
   end
-
 end

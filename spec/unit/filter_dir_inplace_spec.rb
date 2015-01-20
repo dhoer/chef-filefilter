@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'filefilter_test::filter_dir_inplace' do
-
   let(:chef_run) { ChefSpec::SoloRunner.new(step_into: ['filefilter']).converge(described_recipe) }
 
   before do
@@ -52,5 +51,4 @@ describe 'filefilter_test::filter_dir_inplace' do
       tokens: { TOK1: '1', TOK2: '2', TOK3: '3       ' }
     )
   end
-
 end

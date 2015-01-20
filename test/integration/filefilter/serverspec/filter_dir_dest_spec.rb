@@ -4,7 +4,6 @@ require 'serverspec'
 set :backend, :exec
 
 describe 'filefilter::filter_dir_dest' do
-
   describe file('/tmp/filefilter/filter_dir_dest_txt/testfile.txt') do
     it { should be_file }
 

@@ -5,3 +5,7 @@ LineLength:
 MethodLength:
   Enabled: true
   Max: 30
+
+AbcSize:
+  Enabled: true
+  Max: 16

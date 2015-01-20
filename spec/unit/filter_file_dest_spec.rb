@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'filefilter_test::filter_file_dest' do
-
   let(:chef_run) { ChefSpec::SoloRunner.new(step_into: ['filefilter']).converge(described_recipe) }
 
   before do
@@ -59,5 +58,4 @@ describe 'filefilter_test::filter_file_dest' do
   it 'creates a destination file' do
     expect(chef_run).to create_file('filefilter create file for filter_to_new_dest_relative_path')
   end
-
 end
